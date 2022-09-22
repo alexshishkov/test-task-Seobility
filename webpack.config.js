@@ -22,19 +22,24 @@ module.exports = {
         use: ['html-loader']
       },
       {
+        test: /\.ts?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.sass$/,
         use: [
             "style-loader",
             "css-loader",
             "sass-loader"
         ]
-    }
+      }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
 ],
   resolve: {
-    extensions: [ '.js' ],
+    extensions: [ '.ts', '.js' ],
   },
 };
